@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_ward_app/models/patient.dart';
+import '../models/patient.dart';
 
 class FirestoreService {
   Firestore _db = Firestore.instance;
@@ -7,7 +7,7 @@ class FirestoreService {
   Future<void> savePatient(Patient patient) {
     return _db
         .collection('patients')
-        .document(patient.nhiId)
+        .document(patient.nhiId)//Puts nhiID in place of random ID in DB
         .setData(patient.toMap());
   }
 

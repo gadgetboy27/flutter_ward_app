@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ward_app/models/patient.dart';
+import '../models/patient.dart';
 import 'package:provider/provider.dart';
 import '../provider/patient_provider.dart';
 
@@ -26,15 +26,15 @@ class _EditPatientState extends State<EditPatient> {
     notesController.dispose();
     super.dispose();
   }
-
+      //Populates edit_patient fields
   @override
   void initState() {
     if (widget.patient == null) {
       //New Record
-      nameController.text = "";
-      nhiIdController.text = "";
-      notesController.text = "";
-      roomController.text = "";
+      nameController.text = '';
+      nhiIdController.text = '';
+      notesController.text = '';
+      roomController.text = '';
       new Future.delayed(Duration.zero, () {
         final patientProvider =
             Provider.of<PatientProvider>(context, listen: false);
@@ -43,9 +43,9 @@ class _EditPatientState extends State<EditPatient> {
     } else {
       //Controller Update
       nameController.text = widget.patient.name;
-      notesController.text = widget.patient.notes;
       nhiIdController.text = widget.patient.nhiId;
-      roomController.text = widget.patient.room.toString();
+      roomController.text = widget.patient.room;
+      notesController.text = widget.patient.notes;
       //State Update
       new Future.delayed(Duration.zero, () {
         final patientProvider =

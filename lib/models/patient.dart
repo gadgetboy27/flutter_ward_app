@@ -3,7 +3,7 @@ class Patient {
   final String name;
   final String nhiId;
   final String notes;
-  final double room;
+  final String room;
   final String patientId;
 
   Patient({this.name, this.nhiId, this.notes, this.room, this.patientId});

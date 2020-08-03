@@ -7,16 +7,16 @@ class PatientProvider with ChangeNotifier {
   final firestoreService = FirestoreService();
   String _name;
   String _nhiId;
+  String _room;
   String _notes;
-  double _room;
   String _patientId;
   var uuid = Uuid();
 
   //Getters
   String get name => _name;
-  String get notes => _notes;
-  double get room => _room;
   String get nhiId => _nhiId;
+  String get room => _room;
+  String get notes => _notes;
 
   //Setters
   changeName(String value) {
@@ -24,18 +24,18 @@ class PatientProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  changeNhiId(String value) {
+    _nhiId =value;
+    notifyListeners();
+  }
+
   changeRoom(String value) {
-    _room = double.parse(value);
+    _room = value;
     notifyListeners();
   }
 
   changeNotes(String value) {
     _notes = value;
-    notifyListeners();
-  }
-
-  changeNhiId(String value) {
-    _nhiId = value;
     notifyListeners();
   }
     //Load details into Edit Patient
@@ -52,9 +52,9 @@ class PatientProvider with ChangeNotifier {
     if (_patientId == null) {
       var newPatient = Patient(
           name: name,
+          nhiId: nhiId,
           room: room,
           notes: notes,
-          nhiId: nhiId,
           patientId: uuid.v4());
       firestoreService.savePatient(newPatient);
     } else {
