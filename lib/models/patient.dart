@@ -6,7 +6,14 @@ class Patient {
   final String room;
   final String patientId;
 
-  Patient({this.name, this.nhiId, this.notes, this.room, this.patientId});
+  Patient({
+    this.name, 
+    this.nhiId, 
+    this.notes, 
+    this.room, 
+    this.patientId,
+    }
+  );
 
   Map<String, dynamic> toMap() {
     return {

@@ -25,7 +25,7 @@ class PatientProvider with ChangeNotifier {
   }
 
   changeNhiId(String value) {
-    _nhiId =value;
+    _nhiId = value;
     notifyListeners();
   }
 
@@ -38,7 +38,8 @@ class PatientProvider with ChangeNotifier {
     _notes = value;
     notifyListeners();
   }
-    //Load details into Edit Patient
+
+  //Load details into Edit Patient
   loadValues(Patient patient) {
     _name = patient.name;
     _nhiId = patient.nhiId;
@@ -46,9 +47,10 @@ class PatientProvider with ChangeNotifier {
     _notes = patient.notes;
     _patientId = patient.patientId;
   }
-    //
+
+  //Save Patient
   savePatient() {
-    print(_patientId);
+    print(_name);
     if (_patientId == null) {
       var newPatient = Patient(
           name: name,
@@ -59,17 +61,18 @@ class PatientProvider with ChangeNotifier {
       firestoreService.savePatient(newPatient);
     } else {
       //Update Patient Deets
-      var upDatedPatient = Patient(
+      var updatedPatient = Patient(
           name: name,
           nhiId: nhiId,
           room: room,
           notes: notes,
           patientId: _patientId);
-      firestoreService.savePatient(upDatedPatient);
+      firestoreService.savePatient(updatedPatient);
     }
   }
 
   removePatient(String patientId) {
+    print(name);
     firestoreService.removePatient(patientId);
   }
 }

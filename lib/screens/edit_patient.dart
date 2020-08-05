@@ -26,15 +26,16 @@ class _EditPatientState extends State<EditPatient> {
     notesController.dispose();
     super.dispose();
   }
-      //Populates edit_patient fields
+
+  //Populates edit_patient fields
   @override
   void initState() {
     if (widget.patient == null) {
       //New Record
       nameController.text = '';
       nhiIdController.text = '';
-      notesController.text = '';
       roomController.text = '';
+      notesController.text = '';
       new Future.delayed(Duration.zero, () {
         final patientProvider =
             Provider.of<PatientProvider>(context, listen: false);
@@ -53,6 +54,7 @@ class _EditPatientState extends State<EditPatient> {
         patientProvider.loadValues(widget.patient);
       });
     }
+
     super.initState();
   }
 
@@ -67,18 +69,22 @@ class _EditPatientState extends State<EditPatient> {
         child: ListView(
           children: <Widget>[
             TextField(
+              controller: nameController,
               decoration: InputDecoration(hintText: 'Name'),
               onChanged: (value) => patientProvider.changeName(value),
             ),
             TextField(
+              controller: nhiIdController,
               decoration: InputDecoration(hintText: 'NHI'),
               onChanged: (value) => patientProvider.changeNhiId(value),
             ),
             TextField(
+              controller: roomController,
               decoration: InputDecoration(hintText: 'Room'),
               onChanged: (value) => patientProvider.changeRoom(value),
             ),
             TextField(
+              controller: notesController,
               decoration: InputDecoration(hintText: 'Notes'),
               onChanged: (value) => patientProvider.changeNotes(value),
             ),
@@ -92,17 +98,15 @@ class _EditPatientState extends State<EditPatient> {
                 Navigator.of(context).pop();
               },
             ),
-            (widget.patient != null)
-                ? RaisedButton(
-                    color: Colors.red,
-                    textColor: Colors.white,
-                    child: Text('Delete'),
-                    onPressed: () {
-                      patientProvider.removePatient(widget.patient.patientId);
-                      Navigator.of(context).pop();
-                    },
-                  )
-                : Container(),
+            (widget.patient !=null) ? RaisedButton(
+              color: Colors.red,
+              textColor: Colors.white,
+              child: Text('Delete'),
+              onPressed: () {
+                patientProvider.removePatient(widget.patient.patientId);
+                Navigator.of(context).pop();
+              },
+            ): Container(),
           ],
         ),
       ),
