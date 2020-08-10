@@ -98,7 +98,8 @@ class _EditPatientState extends State<EditPatient> {
                 Navigator.of(context).pop();
               },
             ),
-            (widget.patient !=null) ? RaisedButton(
+            (widget.patient !=null) 
+              ? RaisedButton(
               color: Colors.red,
               textColor: Colors.white,
               child: Text('Delete'),

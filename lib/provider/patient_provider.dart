@@ -50,29 +50,27 @@ class PatientProvider with ChangeNotifier {
 
   //Save Patient
   savePatient() {
-    print(_name);
+    print(_patientId);
     if (_patientId == null) {
       var newPatient = Patient(
-          name: name,
-          nhiId: nhiId,
-          room: room,
-          notes: notes,
+          name: name, 
+          nhiId: nhiId, 
+          notes: _notes, 
           patientId: uuid.v4());
       firestoreService.savePatient(newPatient);
     } else {
-      //Update Patient Deets
+      //Update
       var updatedPatient = Patient(
           name: name,
-          nhiId: nhiId,
-          room: room,
-          notes: notes,
+          nhiId: _nhiId,
+          room: _room,
+          notes: _notes,
           patientId: _patientId);
       firestoreService.savePatient(updatedPatient);
     }
   }
 
   removePatient(String patientId) {
-    print(name);
     firestoreService.removePatient(patientId);
   }
 }

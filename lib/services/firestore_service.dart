@@ -8,7 +8,7 @@ class FirestoreService {
   Future<void> savePatient(Patient patient) {
     return _db
       .collection('patients')
-      .document(patient.nhiId) //Puts nhiID in place of random ID in DB
+      .document(patient.patientId) //Puts nhiID in place of random ID in DB
       .setData(patient.toMap());
   }
 
