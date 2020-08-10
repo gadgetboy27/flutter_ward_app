@@ -31,4 +31,4 @@ class Patient {
         room = firestore['room'],
         notes = firestore['notes'],
         nhiId = firestore['NHI'];
-}
+} 
