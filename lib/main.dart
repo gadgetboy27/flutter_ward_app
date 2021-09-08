@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ward_app/provider/patient_provider.dart';
-import 'package:flutter_ward_app/services/firestore_service.dart';
-import 'package:provider/provider.dart';
-import 'screens/patients.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_ward_app/src/screens/home.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(
+  ProviderScope(child: MyApp()));
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final firestoreService = FirestoreService();
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => PatientProvider()),
-        StreamProvider(create: (context)=>firestoreService.getPatients()),
-      ],
-      child: MaterialApp(
-        title: 'Patient App',
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Colors.black,
-        ),
-        home: Patients(),
+          appBarTheme: AppBarTheme(color: Color(0xFF064479)),
+          primaryColor: Color(0xFF064479),
+          backgroundColor: Color(0xFFb7eeff),
       ),
+      home: Home(),
     );
   }
 }

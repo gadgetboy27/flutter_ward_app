@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "367992579937",
-    "firebase_url": "https://patient-list-671bf.firebaseio.com",
-    "project_id": "patient-list-671bf",
-    "storage_bucket": "patient-list-671bf.appspot.com"
+    "project_number": "638762026958",
+    "project_id": "flutter-ward-app",
+    "storage_bucket": "flutter-ward-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:367992579937:android:ef55d00669761bb6fec720",
+        "mobilesdk_app_id": "1:638762026958:android:a072a1e5cc9ef1c9b88d9f",
         "android_client_info": {
-          "package_name": "com.flutter_ward_app"
+          "package_name": "com.flutter-ward-app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "367992579937-m2aa5vuotd1d8imm2i8ngv9ic7v46ja8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.flutter_ward_app",
-            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
-          }
-        },
-        {
-          "client_id": "367992579937-3p5abf65vudmmi0rajn95j5gar0bjej7.apps.googleusercontent.com",
+          "client_id": "638762026958-2jh20v0klek80hhsqoc33g14eobrvn0h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDxGrh7RP59s2y-EsFCLDLeQUTW2RleVL4"
+          "current_key": "AIzaSyD16e1OJuObvcncSyCBoozxgCHEr1_92mQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "367992579937-3p5abf65vudmmi0rajn95j5gar0bjej7.apps.googleusercontent.com",
+              "client_id": "638762026958-2jh20v0klek80hhsqoc33g14eobrvn0h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
